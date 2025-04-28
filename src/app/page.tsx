@@ -26,9 +26,7 @@ export default function Home() {
             height={120}
             priority
           />
-          <span className="text-3xl font-bold text-blue-700 tracking-tight">
-            ATSBoost
-          </span>
+          
           <p className="text-gray-500 text-sm font-medium">
             Upgrade your resume, beat the bots!
           </p>
