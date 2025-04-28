@@ -5,9 +5,12 @@ import { useState } from 'react';
 export default function Upload() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadMsg, setUploadMsg] = useState('');
+  const [result, setResult] = useState('');
 
   function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     setSelectedFile(e.target.files?.[0] || null);
+    setUploadMsg('');
+    setResult('');
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -16,9 +19,17 @@ export default function Upload() {
       setUploadMsg('Please select a file.');
       return;
     }
-    // This just mocks upload/analysis
     setUploadMsg('Uploading...');
-    setTimeout(() => setUploadMsg('Resume uploaded. (Connect backend for analysis.)'), 1500);
+    const formData = new FormData();
+    formData.append('resume', selectedFile);
+
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+    const data = await response.json();
+    setUploadMsg('');
+    setResult(data.message);
   }
 
   return (
@@ -27,7 +38,8 @@ export default function Upload() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="file" accept=".pdf,.docx,.txt" onChange={handleFile} />
         <button className="bg-blue-600 text-white py-2 rounded" type="submit">Upload</button>
-        <span>{uploadMsg}</span>
+        {uploadMsg && <span>{uploadMsg}</span>}
+        {result && <div className="mt-4 p-4 bg-green-50 border">{result}</div>}
       </form>
     </main>
   );
