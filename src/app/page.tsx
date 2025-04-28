@@ -1,5 +1,6 @@
 'use client';
 
+import Navbar from '../components/Navbar'; // adjust if your folder structure differs
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,18 +9,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col">
       {/* NAVBAR */}
-      <nav className="w-full bg-white border-b flex items-center justify-center py-4">
-        <div className="max-w-4xl w-full flex flex-wrap gap-6 justify-center">
-          <Link href="/" className="font-semibold text-blue-700">Home</Link>
-          <Link href="/upload" className="hover:text-blue-600">Resume Upload</Link>
-          <Link href="/results" className="hover:text-blue-600">ATS Results</Link>
-          <Link href="/blog" className="hover:text-blue-600">Blog</Link>
-          <Link href="/about" className="hover:text-blue-600">About</Link>
-          <Link href="/contact" className="hover:text-blue-600">Contact</Link>
-          <Link href="/login" className="hover:text-blue-600">Login</Link>
-          <Link href="/register" className="hover:text-blue-600">Register</Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* HERO SECTION */}
       <motion.section
@@ -36,12 +26,17 @@ export default function Home() {
             height={120}
             priority
           />
-          <span className="text-3xl font-bold text-blue-700 tracking-tight">ATSBoost</span>
-          <p className="text-gray-500 text-sm font-medium">Upgrade your resume, beat the bots!</p>
+          <span className="text-3xl font-bold text-blue-700 tracking-tight">
+            ATSBoost
+          </span>
+          <p className="text-gray-500 text-sm font-medium">
+            Upgrade your resume, beat the bots!
+          </p>
         </div>
 
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          Land Your Next Job Faster <span className="text-blue-600">with AI + ATS Optimization</span>
+          Land Your Next Job Faster{' '}
+          <span className="text-blue-600">with AI + ATS Optimization</span>
         </h1>
         <p className="text-gray-600 mb-6">
           Upload your resume for a free ATS scan. Get actionable feedback, AI rewrites, and proven recommendations to help you stand out.
@@ -58,11 +53,13 @@ export default function Home() {
           </Link>
         </motion.div>
         <p className="mt-4 text-gray-400 text-xs">
-          <span className="font-medium">You’re closer than you think!</span>
+          <span className="font-medium">
+            You’re closer than you think!
+          </span>
         </p>
       </motion.section>
 
-      {/* FEATURES */}
+      {/* FEATURES SECTION */}
       <section className="my-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto w-full px-6">
         {[
           { title: 'Upload Resume', desc: 'PDF, DOCX, or TXT. Fast, secure, no sign-up needed.' },
@@ -87,9 +84,13 @@ export default function Home() {
       <footer className="w-full text-center py-6 text-gray-400 text-xs mt-auto">
         &copy; {new Date().getFullYear()} ATSBoost. All rights reserved.
         <span className="mx-2">|</span>
-        <Link href="/terms" className="underline hover:text-blue-600">Terms</Link>
+        <Link href="/terms" className="underline hover:text-blue-600">
+          Terms
+        </Link>
         <span className="mx-2">|</span>
-        <Link href="/privacy" className="underline hover:text-blue-600">Privacy</Link>
+        <Link href="/privacy" className="underline hover:text-blue-600">
+          Privacy
+        </Link>
       </footer>
     </main>
   );
