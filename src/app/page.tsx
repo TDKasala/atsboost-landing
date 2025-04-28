@@ -20,7 +20,7 @@ export default function Home() {
       >
         <div className="flex flex-col items-center mb-6 space-y-3">
           <Image src="/logo.png" alt="ATSBoost Logo" width={100} height={100} priority />
-          <span className="text-3xl font-bold text-blue-900 tracking-tight">ATSBoost</span>
+          
           <p className="text-gray-500 text-sm font-medium">Upgrade your CV, beat the bots!</p>
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3">
@@ -38,7 +38,7 @@ export default function Home() {
           </Link>
         </motion.div>
         <p className="mt-4 text-gray-400 text-xs">
-          <span className="font-medium">You’re closer than you think!</span>
+          <span className="font-medium">You are closer than you think!</span>
         </p>
       </motion.section>
 
