@@ -6,24 +6,37 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-blue-50 to-blue-100">
-      {/* Hero */}
+    <main className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col">
+      {/* NAVBAR */}
+      <nav className="w-full bg-white border-b flex items-center justify-center py-4">
+        <div className="max-w-4xl w-full flex flex-wrap gap-6 justify-center">
+          <Link href="/" className="font-semibold text-blue-700">Home</Link>
+          <Link href="/upload" className="hover:text-blue-600">Resume Upload</Link>
+          <Link href="/results" className="hover:text-blue-600">ATS Results</Link>
+          <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+          <Link href="/about" className="hover:text-blue-600">About</Link>
+          <Link href="/contact" className="hover:text-blue-600">Contact</Link>
+          <Link href="/login" className="hover:text-blue-600">Login</Link>
+          <Link href="/register" className="hover:text-blue-600">Register</Link>
+        </div>
+      </nav>
+
+      {/* HERO SECTION */}
       <motion.section
-        className="w-full max-w-2xl text-center px-6 py-12 rounded-lg shadow-md bg-white/90"
+        className="w-full max-w-2xl mx-auto text-center px-6 py-12 rounded-lg shadow-md bg-white/90 mt-10"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <div className="flex flex-col items-center mb-6 space-y-3">
-          {/* Logo */}
           <Image
-            src="/logo.png"           // Replace with your logo filename in public folder
+            src="/logo.png"
             alt="ATSBoost Logo"
             width={120}
             height={120}
             priority
           />
-          
+          <span className="text-3xl font-bold text-blue-700 tracking-tight">ATSBoost</span>
           <p className="text-gray-500 text-sm font-medium">Upgrade your resume, beat the bots!</p>
         </div>
 
@@ -49,8 +62,8 @@ export default function Home() {
         </p>
       </motion.section>
 
-      {/* Features */}
-      <section className="my-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full px-6">
+      {/* FEATURES */}
+      <section className="my-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto w-full px-6">
         {[
           { title: 'Upload Resume', desc: 'PDF, DOCX, or TXT. Fast, secure, no sign-up needed.' },
           { title: 'ATS Score + AI Tips', desc: 'See your match score and instantly actionable improvements.' },
@@ -70,9 +83,11 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Footer */}
-      <footer className="w-full text-center py-6 text-gray-400 text-xs">
+      {/* FOOTER */}
+      <footer className="w-full text-center py-6 text-gray-400 text-xs mt-auto">
         &copy; {new Date().getFullYear()} ATSBoost. All rights reserved.
+        <span className="mx-2">|</span>
+        <Link href="/terms" className="underline hover:text-blue-600">Terms</Link>
         <span className="mx-2">|</span>
         <Link href="/privacy" className="underline hover:text-blue-600">Privacy</Link>
       </footer>
